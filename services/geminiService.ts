@@ -6,21 +6,21 @@ const getApiKey = () => {
   try {
     // 1. Check Vite Environment Variables
     // @ts-ignore
-    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_KEY) {
+    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_GEMINI_API_KEY) {
       // @ts-ignore
-      return import.meta.env.VITE_API_KEY;
+      return import.meta.env.VITE_GEMINI_API_KEY;
     }
     // 2. Check Standard Process Environment
     // @ts-ignore
-    if (typeof process !== 'undefined' && process && process.env && process.env.API_KEY) {
+    if (typeof process !== 'undefined' && process && process.env && process.env.VITE_GEMINI_API_KEY) {
       // @ts-ignore
-      return process.env.API_KEY;
+      return process.env.VITE_GEMINI_API_KEY;
     }
   } catch (e) {
     console.warn("Environment variable access error:", e);
   }
   // 3. Fallback to provided key for immediate deployment
-  return 'AIzaSyDctvtsI1RXWE1hEETzSvjncO3Q8Idbe4U';
+  return 'null';
 };
 
 const getClient = () => {
